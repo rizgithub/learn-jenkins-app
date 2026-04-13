@@ -42,7 +42,9 @@ pipeline {
 
     post {
         always {
-            echo 'Always'
+            echo 'Always post section'
+            archiveArtifacts artifacts: 'build/**', fingerprint: true
+            junit 'test-results/junit.xml'
         }
         success {
             echo 'Success'
