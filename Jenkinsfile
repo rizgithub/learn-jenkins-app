@@ -7,7 +7,11 @@ pipeline {
                 echo 'Building...'
                 sh '''
                 ls -la 
-                npm install
+                node -v
+                npm -v
+                npm ci
+                npm run build
+                ls -la
                 '''
             }
         }
