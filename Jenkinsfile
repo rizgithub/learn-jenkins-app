@@ -31,6 +31,7 @@ pipeline {
                 docker {
                     image 'mcr.microsoft.com/playwright:v1.25.1-focal'
                     reuseNode true
+                    args '-u 0'
                 }
             }
             steps {
