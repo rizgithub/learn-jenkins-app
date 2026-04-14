@@ -27,6 +27,11 @@ pipeline {
             }
         }
         stage('End-to-End-Test') {
+            agent {
+                docker {
+                    image 'mcr.microsoft.com/playwright:v1.25.1-focal'
+                }
+            }
             steps {
                 echo 'Executing end to end tests...'
                 sh '''
@@ -34,8 +39,6 @@ pipeline {
                 npm install serve
                 npx serve -s build -l 3000 &
                 sleep 10
-                npm install -D @playwright/test
-                npx playwright install
                 npx playwright test
                 npx playwright show-report
                 ls -la
