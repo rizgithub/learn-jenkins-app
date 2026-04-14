@@ -28,7 +28,7 @@ pipeline {
         }
         stage('End-to-End-Test') {
             agent {
-                docker {
+                dockerContainer {
                     image 'mcr.microsoft.com/playwright:v1.25.1-focal'
                 }
             }
