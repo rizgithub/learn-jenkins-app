@@ -34,6 +34,8 @@ pipeline {
                 npm install serve
                 npx serve -s build -l 3000 &
                 sleep 10
+                npm install -D @playwright/test
+                npx playwright install
                 npx playwright test
                 npx playwright show-report
                 ls -la
