@@ -26,6 +26,17 @@ pipeline {
                 '''
             }
         }
+        stage('End-to-End-Test') {
+            steps {
+                echo 'Executing end to end tests...'
+                sh '''
+                ls -la
+                npm install -g serve
+                serve -s build 
+                ls -la
+                '''
+            }
+        }
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
