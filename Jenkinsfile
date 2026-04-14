@@ -30,6 +30,7 @@ pipeline {
             agent {
                 docker {
                     image 'mcr.microsoft.com/playwright:v1.25.1-focal'
+                    reuseNode true
                 }
             }
             steps {
@@ -37,7 +38,7 @@ pipeline {
                 sh '''
                 ls -la
                 npm install serve
-                npx serve -s build -l 3000 &
+                node_modules/.bin/serve -s build -l 3000 &
                 sleep 10
                 npx playwright test
                 npx playwright show-report
