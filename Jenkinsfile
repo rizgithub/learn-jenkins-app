@@ -31,8 +31,10 @@ pipeline {
                 echo 'Executing end to end tests...'
                 sh '''
                 ls -la
-                npm install -g serve
-                serve -s build 
+                npm install serve
+                npx serve -s build 
+                npx playwright test
+                npx playwright show-report
                 ls -la
                 '''
             }
