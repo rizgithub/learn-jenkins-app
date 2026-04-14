@@ -30,7 +30,6 @@ pipeline {
             agent {
                 dockerContainer {
                     image 'mcr.microsoft.com/playwright:v1.25.1-focal'
-                    args '-u 0'
                 }
             }
             steps {
